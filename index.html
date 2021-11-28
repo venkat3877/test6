@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TODO LIST</title>
+    <script>
+      function add() {
+        var inputref = document.getElementById("inp").value;
+        if (inputref != "") {
+          var pref = document.createElement("span");
+          pref.append(inputref);
+          pref.style.textAlign="center"
+
+          var bref1 = document.createElement("button");
+          bref1.innerText = "Edit";
+          bref1.addEventListener(onclick, function (edit) {
+            let val = prompt();
+            pref.value(val.value);
+            document.querySelector("body").appendChild(pref);
+          });
+
+          var bref2 = document.createElement("button");
+          bref2.innerText = "Delete";
+          bref2.addEventListener(onclick, function (del) {
+            document.querySelector("body").removeElement("span");
+          });
+          var br = document.createElement("br");
+
+          document.querySelector("div").appendChild(pref);
+          document.querySelector("div").appendChild(bref1);
+          document.querySelector("div").appendChild(bref2);
+          document.querySelector("div").appendChild(br);
+        } else {
+          alert("please enter something");
+        }
+      }
+    </script>
+    <style>
+        body{
+            margin: 0;
+            background-color:cornsilk
+        }
+      #container {
+        width: 430px;
+        height: 500px;
+        box-shadow: 0px, 0px, 10px solid black;
+        padding-left: 500px;
+      }
+      h2{
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <h2>TODO LIST</h2>
+      Enter the Item:<input type="text" id="inp" />
+      <button id="add" onclick="add()">Add</button><br />
+    </div>
+  </body>
+</html>
